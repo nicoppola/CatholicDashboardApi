@@ -1,0 +1,195 @@
+{
+  "dataSource": [
+    "https://www.usccb.org/prayer-and-worship/liturgical-year-and-calendar/proper-calendar"
+  ],
+  "map": {
+    "0": {
+      "0": [
+        {
+          "rank": "solemnity",
+          "key": "corpus_christi",
+          "title": "The Most Holy Body and Blood of Christ (Corpus Christi)",
+          "dateNote": "Sunday after the Most Holy Trinity"
+        }
+      ]
+    },
+    "1": {
+      "0": [
+        {
+          "rank": "solemnity",
+          "key": "epiphany",
+          "title": "The Epiphany of the Lord",
+          "dateNote": "Sunday between Jan 2 and 8"
+        }
+      ],
+      "4": [
+        {
+          "rank": "memorial",
+          "key": "elizabeth_ann_seton",
+          "title": "Saint Elizabeth Ann Seton, Religious"
+        }
+      ],
+      "5": [
+        {
+          "rank": "memorial",
+          "key": "neumann",
+          "title": "Saint John Neumann, Bishop"
+        }
+      ],
+      "6": [
+        {
+          "key": "bessette",
+          "title": "Saint André Bessette, Religious"
+        }
+      ],
+      "22": [
+        {
+          "rank": "memorial",
+          "dateNote": "Moved to 23rd if 22nd falls on a Sunday",
+          "key": "unborn",
+          "title": "Day of Prayer for the Legal Protection of Unborn Children"
+        }
+      ],
+      "23": [
+        {
+          "key": "vincent_marianne",
+          "title": "Saint Vincent, Deacon and Martyr; Saint Marianne Cope, Virgin"
+        }
+      ]
+    },
+    "3": {
+      "3": [
+        {
+          "key": "katharine_drexel",
+          "title": "Saint Katharine Drexel, Virgin"
+        }
+      ]
+    },
+    "4": {
+      "10": [
+        {
+          "key": "damien",
+          "title": "Saint Damien de Veuster, Priest"
+        }
+      ],
+      "15": [
+        {
+          "key": "isidore",
+          "title": "Saint Isidore"
+        }
+      ]
+    },
+    "7": {
+      "1": [
+        {
+          "key": "junipero_serra",
+          "title": "Saint Junípero Serra, Priest"
+        }
+      ],
+      "4": [
+        {
+          "key": "indepencence_day",
+          "title": "Independence Day"
+        }
+      ],
+      "5": [
+        {
+          "key": "elizabeth_portugal",
+          "title": "Saint Elizabeth of Portugal"
+        }
+      ],
+      "14": [
+        {
+          "key": "kateri",
+          "rank": "memorial",
+          "title": "Saint Kateri Tekakwitha, Virgin"
+        }
+      ],
+      "18": [
+        {
+          "key": "camillus",
+          "title": "Saint Camillus de Lellis, Priest"
+        }
+      ]
+    },
+    "9": {
+      "9": [
+        {
+          "rank": "memorial",
+          "key": "peter_claver",
+          "title": "Saint Peter Claver, Priest"
+        }
+      ]
+    },
+    "10": {
+      "5": [
+        {
+          "key": "francis_xavier",
+          "title": "Blessed Francis Xavier Seelos, Priest"
+        }
+      ],
+      "6": [
+        {
+          "key": "marie_durocher",
+          "title": "Blessed Marie Rose Durocher, Virgin"
+        }
+      ],
+      "19": [
+        {
+          "key": "john_isaac",
+          "rank": "memorial",
+          "title": "Saints John de Brébeuf and Isaac Jogues, Priests, and Companions, Martyrs"
+        }
+      ],
+      "20": [
+        {
+          "key": "paul_cross",
+          "title": "Saint Paul of the Cross, Priest"
+        }
+      ]
+    },
+    "11": {
+      "13": [
+        {
+          "key": "cabrini",
+          "rank": "memorial",
+          "title": "Saint Frances Xavier Cabrini, Virgin"
+        }
+      ],
+      "18": [
+        {
+          "key": "rose_duchesne",
+          "title": "Saint Rose Philippine Duchesne, Virgin"
+        }
+      ],
+      "23": [
+        {
+          "key": "miguel_pro",
+          "title": "Blessed Miguel Agustín Pro, Priest and Martyr"
+        }
+      ],
+      "0": [
+        {
+          "key": "thanksgiving",
+          "title": "Thanksgiving Day"
+        }
+      ]
+    },
+    "12": {
+      "8": [
+        {
+          "key": "immaculate_conception",
+          "rank": "solemnity",
+          "title": "Immaculate Conception of the Blessed Virgin Mary, Patronal Feastday of the United States of America"
+        }
+      ],
+      "12": [
+        {
+          "key": "lady_guadalupe",
+          "rank": "feast",
+          "title": "Our Lady of Guadalupe"
+        }
+      ]
+    }
+  }
+}

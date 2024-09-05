@@ -1,0 +1,63 @@
+{
+  "dataSource": [
+    "https://www.usccb.org/committees/canonical-affairs-church-governance/complementary-norms#tab--canon-1246-§2-holy-days-of-obligation"
+  ],
+  "map": {
+    "0": {
+      "0": [
+        {
+          "key": "ascension",
+          "rank": "holyDayObligation",
+          "title": "The Solemnity of the Ascension",
+          "dateNote": "Thursday of the sixth week of Easter, transferred to the following Sunday in some diocese"
+        }
+      ]
+    },
+    "1": {
+      "1": [
+        {
+          "key": "mary_mother_god",
+          "rank": "holyDayObligation",
+          "title": "The Solemnity of Mary, Mother of God",
+          "dateNote": "If it falls on a Saturday or on a Monday, the precept to attend Mass is abrogated."
+        }
+      ]
+    },
+    "8": {
+      "15": [
+        {
+          "key": "assumption",
+          "rank": "holyDayObligation",
+          "title": "The Solemnity of the Assumption of the Blessed Virgin Mary",
+          "dateNote": "If it falls on a Saturday or on a Monday, the precept to attend Mass is abrogated."
+        }
+      ]
+    },
+    "11": {
+      "1": [
+        {
+          "key": "all_saints",
+          "rank": "holyDayObligation",
+          "title": "The Solemnity of All Saints",
+          "dateNote": "If it falls on a Saturday or on a Monday, the precept to attend Mass is abrogated."
+        }
+      ]
+    },
+    "12": {
+      "8": [
+        {
+          "key": "immaculate_conception",
+          "rank": "holyDayObligation",
+          "title": "The Solemnity of the Immaculate Conception"
+        }
+      ],
+      "25": [
+        {
+          "key": "christmas",
+          "rank": "holyDayObligation",
+          "title": "The Solemnity of the Nativity of Our Lord Jesus Christ"
+        }
+      ]
+    }
+  }
+}

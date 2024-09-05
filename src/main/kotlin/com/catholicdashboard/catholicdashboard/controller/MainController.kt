@@ -1,6 +1,6 @@
 package com.catholicdashboard.catholicdashboard.controller
 
-import com.catholicdashboard.catholicdashboard.NovusOrdoCalendar
+import com.catholicdashboard.catholicdashboard.novus.NovusOrdoCalendar
 import com.catholicdashboard.catholicdashboard.model.CalendarData
 import com.catholicdashboard.catholicdashboard.model.DayData
 import com.catholicdashboard.catholicdashboard.model.SeasonColor

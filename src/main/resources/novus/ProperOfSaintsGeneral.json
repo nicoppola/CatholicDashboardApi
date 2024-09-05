@@ -1,0 +1,1412 @@
+{
+  "dataSource": [
+    "https://www.usccb.org/prayer-worship/liturgical-year",
+    "https://github.com/igneus/calendarium-romanum/blob/master/data/universal-en.txt"
+  ],
+  "map": {
+    "0": {
+      "0": [
+        {
+          "rank": "memorial",
+          "key": "mary_mother_church",
+          "title": "Memorial of the Blessed Virgin Mary, Mother of the Church",
+          "dateNote": "Monday after Penticost"
+        }
+      ]
+    },
+    "1": {
+      "2": [
+        {
+          "rank": "memorial",
+          "key": "basil_gregory",
+          "title": "Saints Basil the Great and Gregory Nazianzen, bishops and doctors"
+        }
+      ],
+      "3": [
+        {
+          "key": "name_jesus",
+          "title": "The Most Holy Name of Jesus"
+        }
+      ],
+      "7": [
+        {
+          "key": "raymond",
+          "title": "Saint Raymond of Penyafort, priest"
+        }
+      ],
+      "13": [
+        {
+          "key": "hilary",
+          "title": "Saint Hilary of Poitiers, bishop and doctor"
+        }
+      ],
+      "17": [
+        {
+          "rank": "memorial",
+          "key": "anthony_of_egypt",
+          "title": "Saint Anthony of Egypt, abbot"
+        }
+      ],
+      "20": [
+        {
+          "key": "fabian",
+          "title": "Saint Fabian, pope and martyr"
+        },
+        {
+          "key": "sebastian",
+          "title": "Saint Sebastian, martyr"
+        }
+      ],
+      "21": [
+        {
+          "rank": "memorial",
+          "key": "agnes",
+          "title": "Saint Agnes, virgin and martyr"
+        }
+      ],
+      "22": [
+        {
+          "key": "vincent_deacon",
+          "title": "Saint Vincent, deacon and martyr"
+        }
+      ],
+      "24": [
+        {
+          "rank": "memorial",
+          "key": "francis_de_sales",
+          "title": "Saint Francis de Sales, bishop and doctor"
+        }
+      ],
+      "25": [
+        {
+          "rank": "feast",
+          "key": "paul_conversion",
+          "title": "The Conversion of Saint Paul, apostle"
+        }
+      ],
+      "26": [
+        {
+          "rank": "memorial",
+          "key": "timothy_titus",
+          "title": "Saints Timothy and Titus, bishops"
+        }
+      ],
+      "27": [
+        {
+          "key": "merici",
+          "title": "Saint Angela Merici, virgin"
+        }
+      ],
+      "28": [
+        {
+          "rank": "memorial",
+          "key": "aquinas",
+          "title": "Saint Thomas Aquinas, priest and doctor"
+        }
+      ],
+      "31": [
+        {
+          "rank": "memorial",
+          "key": "bosco",
+          "title": "Saint John Bosco, priest"
+        }
+      ]
+    },
+    "2": {
+      "2": [
+        {
+          "rank": "feast",
+          "key": "presentation_of_lord",
+          "title": "Presentation of the Lord"
+        }
+      ],
+      "3": [
+        {
+          "key": "blase",
+          "title": "Saint Blase, bishop and martyr"
+        },
+        {
+          "key": "ansgar",
+          "title": "Saint Ansgar, bishop"
+        }
+      ],
+      "5": [
+        {
+          "rank": "memorial",
+          "key": "agatha",
+          "title": "Saint Agatha, virgin and martyr"
+        }
+      ],
+      "6": [
+        {
+          "rank": "memorial",
+          "key": "paul_miki",
+          "title": "Saints Paul Miki and companions, martyrs"
+        }
+      ],
+      "8": [
+        {
+          "key": "jerome_emiliani",
+          "title": "Saint Jerome Emiliani, priest"
+        },
+        {
+          "key": "josephine_bakhita",
+          "title": "Saint Josephine Bakhita, virgin"
+        }
+      ],
+      "10": [
+        {
+          "rank": "memorial",
+          "key": "scholastica",
+          "title": "Saint Scholastica, virgin"
+        }
+      ],
+      "11": [
+        {
+          "key": "bvm_lourdes",
+          "title": "Our Lady of Lourdes"
+        }
+      ],
+      "14": [
+        {
+          "rank": "memorial",
+          "key": "cyril_methodius",
+          "title": "Saints Cyril, monk, and Methodius, bishop"
+        }
+      ],
+      "17": [
+        {
+          "key": "servite_founders",
+          "title": "Seven Holy Founders of the Servite Order"
+        }
+      ],
+      "21": [
+        {
+          "key": "peter_damian",
+          "title": "Saint Peter Damian, bishop and doctor of the Church"
+        }
+      ],
+      "22": [
+        {
+          "rank": "feast",
+          "key": "chair_of_peter",
+          "title": "Chair of Saint Peter, apostle"
+        }
+      ],
+      "23": [
+        {
+          "rank": "memorial",
+          "key": "polycarp",
+          "title": "Saint Polycarp, bishop and martyr"
+        }
+      ],
+      "27": [
+        {
+          "key": "gregory_of_narek",
+          "title": "Saint Gregory of Narek, abbot and doctor of the Church"
+        }
+      ]
+    },
+    "3": {
+      "4": [
+        {
+          "key": "casimir",
+          "title": "Saint Casimir"
+        }
+      ],
+      "7": [
+        {
+          "rank": "memorial",
+          "key": "perpetua_felicity",
+          "title": "Saints Perpetua and Felicity, martyrs"
+        }
+      ],
+      "8": [
+        {
+          "key": "john_of_god",
+          "title": "Saint John of God, religious"
+        }
+      ],
+      "9": [
+        {
+          "key": "frances_of_rome",
+          "title": "Saint Frances of Rome, religious"
+        }
+      ],
+      "17": [
+        {
+          "key": "patrick",
+          "title": "Saint Patrick, bishop"
+        }
+      ],
+      "18": [
+        {
+          "key": "cyril_of_jerusalem",
+          "title": "Saint Cyril of Jerusalem, bishop and doctor"
+        }
+      ],
+      "19": [
+        {
+          "rank": "solemnity",
+          "key": "joseph",
+          "title": "Saint Joseph Husband of the Blessed Virgin Mary"
+        }
+      ],
+      "23": [
+        {
+          "key": "turibius",
+          "title": "Saint Turibius of Mogrovejo, bishop"
+        }
+      ],
+      "25": [
+        {
+          "rank": "solemnity",
+          "key": "annunciation",
+          "title": "Annunciation of the Lord"
+        }
+      ]
+    },
+    "4": {
+      "2": [
+        {
+          "key": "francis_of_paola",
+          "title": "Saint Francis of Paola, hermit"
+        }
+      ],
+      "4": [
+        {
+          "key": "isidore",
+          "title": "Saint Isidore, bishop and doctor of the Church"
+        }
+      ],
+      "5": [
+        {
+          "key": "vincent_ferrer",
+          "title": "Saint Vincent Ferrer, priest"
+        }
+      ],
+      "7": [
+        {
+          "rank": "memorial",
+          "key": "de_la_salle",
+          "title": "Saint John Baptist de la Salle, priest"
+        }
+      ],
+      "10": [
+        {
+          "rank": "memorial",
+          "key": "stanislaus",
+          "title": "Saint John of Avila, priest and doctor of the church"
+        }
+      ],
+      "11": [
+        {
+          "rank": "memorial",
+          "key": "stanislaus",
+          "title": "Saint Stanislaus, bishop and martyr"
+        }
+      ],
+      "13": [
+        {
+          "key": "martin_i",
+          "title": "Saint Martin I, pope and martyr"
+        }
+      ],
+      "21": [
+        {
+          "key": "anselm",
+          "title": "Saint Anselm of Canterbury, bishop and doctor of the Church"
+        }
+      ],
+      "23": [
+        {
+          "key": "george",
+          "title": "Saint George, martyr"
+        },
+        {
+          "key": "adalbert",
+          "title": "Saint Adalbert, bishop and martyr"
+        }
+      ],
+      "24": [
+        {
+          "key": "fidelis",
+          "title": "Saint Fidelis of Sigmaringen, priest and martyr"
+        }
+      ],
+      "25": [
+        {
+          "rank": "feast",
+          "key": "mark",
+          "title": "Saint Mark the Evangelist"
+        }
+      ],
+      "28": [
+        {
+          "key": "peter_chanel",
+          "title": "Saint Peter Chanel, priest and martyr"
+        },
+        {
+          "key": "de_montfort",
+          "title": "Saint Louis Grignon de Montfort, priest"
+        }
+      ],
+      "29": [
+        {
+          "rank": "memorial",
+          "key": "catherine_of_siena",
+          "title": "Saint Catherine of Siena, virgin and doctor of the Church"
+        }
+      ],
+      "30": [
+        {
+          "key": "pius_v",
+          "title": "Saint Pius V, pope"
+        }
+      ]
+    },
+    "5": {
+      "1": [
+        {
+          "key": "joseph_worker",
+          "title": "Saint Joseph the Worker"
+        }
+      ],
+      "2": [
+        {
+          "rank": "memorial",
+          "key": "athanasius",
+          "title": "Saint Athanasius, bishop and doctor"
+        }
+      ],
+      "3": [
+        {
+          "rank": "feast",
+          "key": "philip_james",
+          "title": "Saints Philip and James, Apostles"
+        }
+      ],
+      "10": [
+        {
+          "key": "john_de_avila",
+          "title": "Saint John De Avila, Priest and Doctor of the Church"
+        }
+      ],
+      "12": [
+        {
+          "key": "nereus_achilleus",
+          "title": "Saints Nereus and Achilleus, martyrs"
+        },
+        {
+          "key": "pancras",
+          "title": "Saint Pancras, martyr"
+        }
+      ],
+      "13": [
+        {
+          "key": "bvm_fatima",
+          "title": "Our Lady of Fatima"
+        }
+      ],
+      "14": [
+        {
+          "rank": "feast",
+          "key": "matthias",
+          "title": "Saint Matthias the Apostle"
+        }
+      ],
+      "18": [
+        {
+          "key": "john_i",
+          "title": "Saint John I, pope and martyr"
+        }
+      ],
+      "20": [
+        {
+          "key": "bernardine",
+          "title": "Saint Bernardine of Siena, priest"
+        }
+      ],
+      "21": [
+        {
+          "key": "magallanes",
+          "title": "Saint Christopher Magallanes and companions, martyrs"
+        }
+      ],
+      "22": [
+        {
+          "key": "rita",
+          "title": "Saint Rita of Cascia"
+        }
+      ],
+      "25": [
+        {
+          "key": "bede_venerable",
+          "title": "Saint Bede the Venerable, priest and doctor"
+        },
+        {
+          "key": "gregory_vii",
+          "title": "Saint Gregory VII, pope"
+        },
+        {
+          "key": "de_pazzi",
+          "title": "Saint Mary Magdalene de Pazzi, virgin"
+        }
+      ],
+      "26": [
+        {
+          "rank": "memorial",
+          "key": "neri",
+          "title": "Saint Philip Neri, priest"
+        }
+      ],
+      "27": [
+        {
+          "key": "augustine_of_canterbury",
+          "title": "Saint Augustine (Austin) of Canterbury, bishop"
+        }
+      ],
+      "29": [
+        {
+          "key": "paul_vi",
+          "title": "Saint Paul VI, pope"
+        }
+      ],
+      "31": [
+        {
+          "rank": "feast",
+          "key": "visitation",
+          "title": "Visitation of the Blessed Virgin Mary"
+        }
+      ]
+    },
+    "6": {
+      "1": [
+        {
+          "rank": "memorial",
+          "key": "justin",
+          "title": "Saint Justin Martyr"
+        }
+      ],
+      "2": [
+        {
+          "key": "marcellinus_peter",
+          "title": "Saints Marcellinus and Peter, martyrs"
+        }
+      ],
+      "3": [
+        {
+          "rank": "memorial",
+          "key": "ugandan_martyrs",
+          "title": "Saints Charles Lwanga and companions, martyrs"
+        }
+      ],
+      "5": [
+        {
+          "rank": "memorial",
+          "key": "boniface",
+          "title": "Saint Boniface, bishop and martyr"
+        }
+      ],
+      "6": [
+        {
+          "key": "norbert",
+          "title": "Saint Norbert, bishop"
+        }
+      ],
+      "9": [
+        {
+          "key": "ephrem",
+          "title": "Saint Ephrem, deacon and doctor"
+        }
+      ],
+      "11": [
+        {
+          "rank": "memorial",
+          "key": "barnabas",
+          "title": "Saint Barnabas the Apostle"
+        }
+      ],
+      "13": [
+        {
+          "rank": "memorial",
+          "key": "anthony_of_padua",
+          "title": "Saint Anthony of Padua, priest and doctor"
+        }
+      ],
+      "19": [
+        {
+          "key": "romuald",
+          "title": "Saint Romuald, abbot"
+        }
+      ],
+      "21": [
+        {
+          "rank": "memorial",
+          "key": "aloysius",
+          "title": "Saint Aloysius Gonzaga, religious"
+        }
+      ],
+      "22": [
+        {
+          "key": "paulinus",
+          "title": "Saint Paulinus of Nola, bishop"
+        },
+        {
+          "key": "fisher_more",
+          "title": "Saints John Fisher, bishop and martyr and Thomas More, martyr"
+        }
+      ],
+      "24": [
+        {
+          "rank": "solemnity",
+          "key": "baptist_birth",
+          "title": "Birth of Saint John the Baptist"
+        }
+      ],
+      "27": [
+        {
+          "key": "cyril_of_alexandria",
+          "title": "Saint Cyril of Alexandria, bishop and doctor"
+        }
+      ],
+      "28": [
+        {
+          "rank": "memorial",
+          "key": "irenaeus",
+          "title": "Saint Irenaeus, bishop and martyr"
+        }
+      ],
+      "29": [
+        {
+          "rank": "solemnity",
+          "key": "peter_paul",
+          "title": "Saints Peter and Paul, Apostles"
+        }
+      ],
+      "30": [
+        {
+          "key": "first_martyrs_of_rome",
+          "title": "First Martyrs of the Church of Rome"
+        }
+      ]
+    },
+    "7": {
+      "3": [
+        {
+          "rank": "feast",
+          "key": "thomas_apostle",
+          "title": "Saint Thomas the Apostle"
+        }
+      ],
+      "4": [
+        {
+          "key": "elizabeth_of_portugal",
+          "title": "Saint Elizabeth of Portugal"
+        }
+      ],
+      "5": [
+        {
+          "key": "anthony_zaccaria",
+          "title": "Saint Anthony Zaccaria, priest"
+        }
+      ],
+      "6": [
+        {
+          "key": "goretti",
+          "title": "Saint Maria Goretti, virgin and martyr"
+        }
+      ],
+      "9": [
+        {
+          "key": "chinese_martyrs",
+          "title": "Saint Augustine Zhao Rong and companions, martyrs"
+        }
+      ],
+      "11": [
+        {
+          "rank": "memorial",
+          "key": "benedict",
+          "title": "Saint Benedict, abbot"
+        }
+      ],
+      "13": [
+        {
+          "key": "henry",
+          "title": "Saint Henry"
+        }
+      ],
+      "14": [
+        {
+          "key": "camillus_de_lellis",
+          "title": "Saint Camillus de Lellis, priest"
+        }
+      ],
+      "15": [
+        {
+          "rank": "memorial",
+          "key": "bonaventure",
+          "title": "Saint Bonaventure, bishop and doctor"
+        }
+      ],
+      "16": [
+        {
+          "key": "bvm_mount_carmel",
+          "title": "Our Lady of Mount Carmel"
+        }
+      ],
+      "20": [
+        {
+          "key": "apollinaris",
+          "title": "Saint Apollinaris, bishop and martyr"
+        }
+      ],
+      "21": [
+        {
+          "key": "lawrence_of_brindisi",
+          "title": "Saint Lawrence of Brindisi, priest and doctor"
+        }
+      ],
+      "22": [
+        {
+          "rank": "feast",
+          "key": "mary_magdalene",
+          "title": "Saint Mary Magdalene"
+        }
+      ],
+      "23": [
+        {
+          "key": "birgitta",
+          "title": "Saint Birgitta, religious"
+        }
+      ],
+      "24": [
+        {
+          "key": "sharbel",
+          "title": "Saint Sharbel Makhluf, hermit"
+        }
+      ],
+      "25": [
+        {
+          "rank": "feast",
+          "key": "james",
+          "title": "Saint James, apostle"
+        }
+      ],
+      "26": [
+        {
+          "rank": "memorial",
+          "key": "joachim_anne",
+          "title": "Saints Joachim and Anne"
+        }
+      ],
+      "29": [
+        {
+          "rank": "memorial",
+          "key": "martha_mary_lazarus",
+          "title": "Saints Martha, Mary and Lazarus"
+        }
+      ],
+      "30": [
+        {
+          "key": "peter_chrysologus",
+          "title": "Saint Peter Chrysologus, bishop and doctor"
+        }
+      ],
+      "31": [
+        {
+          "rank": "memorial",
+          "key": "ignatius_of_loyola",
+          "title": "Saint Ignatius of Loyola, priest"
+        }
+      ]
+    },
+    "8": {
+      "1": [
+        {
+          "rank": "memorial",
+          "key": "alphonsus",
+          "title": "Saint Alphonsus Maria de Liguori, bishop and doctor of the Church"
+        }
+      ],
+      "2": [
+        {
+          "key": "eusebius",
+          "title": "Saint Eusebius of Vercelli, bishop"
+        },
+        {
+          "key": "eymard",
+          "title": "Saint Peter Julian Eymard, priest"
+        }
+      ],
+      "4": [
+        {
+          "rank": "memorial",
+          "key": "vianney",
+          "title": "Saint Jean Vianney (the Curé of Ars), priest"
+        }
+      ],
+      "5": [
+        {
+          "key": "mary_major",
+          "title": "Dedication of the Basilica of Saint Mary Major"
+        }
+      ],
+      "6": [
+        {
+          "rank": "feast",
+          "key": "transfiguration",
+          "title": "Transfiguration of the Lord"
+        }
+      ],
+      "7": [
+        {
+          "key": "sixtus_ii",
+          "title": "Saint Sixtus II, pope, and companions, martyrs"
+        },
+        {
+          "key": "cajetan",
+          "title": "Saint Cajetan, priest"
+        }
+      ],
+      "8": [
+        {
+          "rank": "memorial",
+          "key": "dominic",
+          "title": "Saint Dominic, priest"
+        }
+      ],
+      "9": [
+        {
+          "key": "stein",
+          "title": "Saint Teresa Benedicta of the Cross (Edith Stein), virgin and martyr"
+        }
+      ],
+      "10": [
+        {
+          "rank": "feast",
+          "key": "lawrence",
+          "title": "Saint Lawrence, deacon and martyr"
+        }
+      ],
+      "11": [
+        {
+          "rank": "memorial",
+          "key": "clare",
+          "title": "Saint Clare, virgin"
+        }
+      ],
+      "12": [
+        {
+          "key": "de_chantal",
+          "title": "Saint Jane Frances de Chantal, religious"
+        }
+      ],
+      "13": [
+        {
+          "key": "pontian_hippolytus",
+          "title": "Saints Pontian, pope, and Hippolytus, priest, martyrs"
+        }
+      ],
+      "14": [
+        {
+          "rank": "memorial",
+          "key": "kolbe",
+          "title": "Saint Maximilian Mary Kolbe, priest and martyr"
+        }
+      ],
+      "15": [
+        {
+          "rank": "solemnity",
+          "key": "assumption",
+          "title": "Assumption of the Blessed Virgin Mary"
+        }
+      ],
+      "16": [
+        {
+          "key": "stephen_hungary",
+          "title": "Saint Stephen of Hungary"
+        }
+      ],
+      "19": [
+        {
+          "key": "eudes",
+          "title": "Saint John Eudes, priest"
+        }
+      ],
+      "20": [
+        {
+          "rank": "memorial",
+          "key": "bernard",
+          "title": "Saint Bernard of Clairvaux, abbot and doctor of the Church"
+        }
+      ],
+      "21": [
+        {
+          "rank": "memorial",
+          "key": "pius_x",
+          "title": "Saint Pius X, pope"
+        }
+      ],
+      "22": [
+        {
+          "rank": "memorial",
+          "key": "bvm_queenship",
+          "title": "Queenship of Blessed Virgin Mary"
+        }
+      ],
+      "23": [
+        {
+          "key": "rose_lima",
+          "title": "Saint Rose of Lima, virgin"
+        }
+      ],
+      "24": [
+        {
+          "rank": "feast",
+          "key": "bartholomew",
+          "title": "Saint Bartholomew the Apostle"
+        }
+      ],
+      "25": [
+        {
+          "key": "louis",
+          "title": "Saint Louis"
+        },
+        {
+          "key": "joseph_calasanz",
+          "title": "Saint Joseph of Calasanz, priest"
+        }
+      ],
+      "27": [
+        {
+          "rank": "memorial",
+          "key": "monica",
+          "title": "Saint Monica"
+        }
+      ],
+      "28": [
+        {
+          "rank": "memorial",
+          "key": "augustine",
+          "title": "Saint Augustine of Hippo, bishop and doctor of the Church"
+        }
+      ],
+      "29": [
+        {
+          "rank": "memorial",
+          "key": "baptist_beheading",
+          "title": "The Beheading of Saint John the Baptist, martyr"
+        }
+      ]
+    },
+    "9": {
+      "3": [
+        {
+          "rank": "memorial",
+          "key": "gregory_great",
+          "title": "Saint Gregory the Great, pope and doctor"
+        }
+      ],
+      "8": [
+        {
+          "rank": "feast",
+          "key": "bvm_birth",
+          "title": "Birth of the Blessed Virgin Mary"
+        }
+      ],
+      "9": [
+        {
+          "key": "claver",
+          "title": "Saint Peter Claver, priest"
+        }
+      ],
+      "12": [
+        {
+          "key": "bvm_name",
+          "title": "Holy Name of the Blessed Virgin Mary"
+        }
+      ],
+      "13": [
+        {
+          "rank": "memorial",
+          "key": "john_chrysostom",
+          "title": "Saint John Chrysostom, bishop and doctor"
+        }
+      ],
+      "14": [
+        {
+          "rank": "feast",
+          "key": "cross",
+          "title": "Triumph of the Holy Cross"
+        }
+      ],
+      "15": [
+        {
+          "rank": "memorial",
+          "key": "bvm_sorrows",
+          "title": "Our Lady of Sorrows"
+        }
+      ],
+      "16": [
+        {
+          "rank": "memorial",
+          "key": "cornelius_cyprian",
+          "title": "Saints Cornelius, pope, and Cyprian, bishop, martyrs"
+        }
+      ],
+      "17": [
+        {
+          "key": "bellarmine",
+          "title": "Saint Robert Bellarmine, bishop and doctor"
+        },
+        {
+          "key": "hildegard",
+          "title": "Saint Hildegard of Bingen, Virgin and Doctor of the Church"
+        }
+      ],
+      "19": [
+        {
+          "key": "januarius",
+          "title": "Saint Januarius, bishop and martyr"
+        }
+      ],
+      "20": [
+        {
+          "rank": "memorial",
+          "key": "korean_martyrs",
+          "title": "Saint Andrew Kim Taegon, priest, and Paul Chong Hasang and companions, martyrs"
+        }
+      ],
+      "21": [
+        {
+          "rank": "feast",
+          "key": "matthew",
+          "title": "Saint Matthew the Evangelist, Apostle, Evangelist"
+        }
+      ],
+      "23": [
+        {
+          "rank": "memorial",
+          "key": "padre_pio",
+          "title": "Saint Pio of Pietrelcina (Padre Pio), priest"
+        }
+      ],
+      "26": [
+        {
+          "key": "cosmas_damian",
+          "title": "Saints Cosmas and Damian, martyrs"
+        }
+      ],
+      "27": [
+        {
+          "rank": "memorial",
+          "key": "vincent_de_paul",
+          "title": "Saint Vincent de Paul, priest"
+        }
+      ],
+      "28": [
+        {
+          "key": "wenceslaus",
+          "title": "Saint Wenceslaus, martyr"
+        },
+        {
+          "key": "ruiz",
+          "title": "Saints Lawrence Ruiz and companions, martyrs"
+        }
+      ],
+      "29": [
+        {
+          "rank": "feast",
+          "key": "archangels",
+          "title": "Saints Michael, Gabriel and Raphael, Archangels"
+        }
+      ],
+      "30": [
+        {
+          "rank": "memorial",
+          "key": "jerome",
+          "title": "Saint Jerome, priest and doctor"
+        }
+      ]
+    },
+    "10": {
+      "1": [
+        {
+          "rank": "memorial",
+          "key": "therese_lisieux",
+          "title": "Saint Thérèse of the Child Jesus, virgin and doctor"
+        }
+      ],
+      "2": [
+        {
+          "rank": "memorial",
+          "key": "guardian_angels",
+          "title": "Guardian Angels"
+        }
+      ],
+      "4": [
+        {
+          "rank": "memorial",
+          "key": "francis_assisi",
+          "title": "Saint Francis of Assisi"
+        }
+      ],
+      "5": [
+        {
+          "key": "faustina_kowalska",
+          "title": "Saint Faustina Kowalska, virgin"
+        }
+      ],
+      "6": [
+        {
+          "key": "bruno",
+          "title": "Saint Bruno, priest"
+        }
+      ],
+      "7": [
+        {
+          "rank": "memorial",
+          "key": "bvm_rosary",
+          "title": "Our Lady of the Rosary"
+        }
+      ],
+      "9": [
+        {
+          "key": "denis",
+          "title": "Saint Denis and companions, martyrs"
+        },
+        {
+          "key": "leonardi",
+          "title": "Saint John Leonardi, priest"
+        }
+      ],
+      "11": [
+        {
+          "key": "john_xxiii",
+          "title": "Saint John XXIII, pope"
+        }
+      ],
+      "14": [
+        {
+          "key": "callistus_i",
+          "title": "Saint Callistus I, pope and martyr"
+        }
+      ],
+      "15": [
+        {
+          "rank": "memorial",
+          "key": "teresa_avila",
+          "title": "Saint Teresa of Jesus, virgin and doctor"
+        }
+      ],
+      "16": [
+        {
+          "key": "hedwig",
+          "title": "Saint Hedwig, religious"
+        },
+        {
+          "key": "alacoque",
+          "title": "Saint Margaret Mary Alacoque, virgin"
+        }
+      ],
+      "17": [
+        {
+          "rank": "memorial",
+          "key": "ignatius_of_antioch",
+          "title": "Saint Ignatius of Antioch, bishop and martyr"
+        }
+      ],
+      "18": [
+        {
+          "rank": "feast",
+          "key": "luke",
+          "title": "Saint Luke the Evangelist"
+        }
+      ],
+      "19": [
+        {
+          "key": "brebeuf_jogues",
+          "title": "Saints Jean de Brébeuf, Isaac Jogues, priests and martyrs; and their companions, martyrs"
+        },
+        {
+          "key": "paul_of_cross",
+          "title": "Saint Paul of the Cross, priest"
+        }
+      ],
+      "22": [
+        {
+          "key": "john_paul_ii",
+          "title": "Saint John Paul II, pope"
+        }
+      ],
+      "23": [
+        {
+          "key": "john_capistrano",
+          "title": "Saint John of Capistrano, priest"
+        }
+      ],
+      "24": [
+        {
+          "key": "claret",
+          "title": "Saint Anthony Mary Claret, bishop"
+        }
+      ],
+      "28": [
+        {
+          "rank": "feast",
+          "key": "simon_jude",
+          "title": "Saint Simon and Saint Jude, apostles"
+        }
+      ]
+    },
+    "11": {
+      "1": [
+        {
+          "rank": "solemnity",
+          "key": "all_saints",
+          "title": "All Saints"
+        }
+      ],
+      "2": [
+        {
+          "rank": "solemnity",
+          "key": "all_souls",
+          "title": "All Souls"
+        }
+      ],
+      "3": [
+        {
+          "key": "de_porres",
+          "title": "Saint Martin de Porres, religious"
+        }
+      ],
+      "4": [
+        {
+          "rank": "memorial",
+          "key": "borromeo",
+          "title": "Saint Charles Borromeo, bishop"
+        }
+      ],
+      "9": [
+        {
+          "rank": "feast",
+          "key": "lateran_basilica",
+          "title": "Dedication of the Lateran basilica"
+        }
+      ],
+      "10": [
+        {
+          "rank": "memorial",
+          "key": "leo_great",
+          "title": "Saint Leo the Great, pope and doctor"
+        }
+      ],
+      "11": [
+        {
+          "rank": "memorial",
+          "key": "martin",
+          "title": "Saint Martin of Tours, bishop"
+        }
+      ],
+      "12": [
+        {
+          "rank": "memorial",
+          "key": "josaphat",
+          "title": "Saint Josaphat, bishop and martyr"
+        }
+      ],
+      "15": [
+        {
+          "key": "albert",
+          "title": "Saint Albert the Great, bishop and doctor"
+        }
+      ],
+      "16": [
+        {
+          "key": "margaret_of_scotland",
+          "title": "Saint Margaret of Scotland"
+        },
+        {
+          "key": "gertrude",
+          "title": "Saint Gertrude the Great, virgin"
+        }
+      ],
+      "17": [
+        {
+          "rank": "memorial",
+          "key": "elizabeth_of_hungary",
+          "title": "Saint Elizabeth of Hungary, religious"
+        }
+      ],
+      "18": [
+        {
+          "key": "peter_paul_basilicas",
+          "title": "Dedication of the basilicas of Saints Peter and Paul, Apostles"
+        }
+      ],
+      "21": [
+        {
+          "rank": "memorial",
+          "key": "bvm_presentation",
+          "title": "Presentation of the Blessed Virgin Mary"
+        }
+      ],
+      "22": [
+        {
+          "rank": "memorial",
+          "key": "cecilia",
+          "title": "Saint Cecilia, virgin and martyr"
+        }
+      ],
+      "23": [
+        {
+          "key": "clement_i",
+          "title": "Saint Clement I, pope and martyr"
+        },
+        {
+          "key": "columban",
+          "title": "Saint Columban, religious"
+        }
+      ],
+      "24": [
+        {
+          "rank": "memorial",
+          "key": "vietnamese_martyrs",
+          "title": "Saint Andrew Dung Lac and his companions, martyrs"
+        }
+      ],
+      "25": [
+        {
+          "key": "catherine_of_alexandria",
+          "title": "Saint Catherine of Alexandria"
+        }
+      ],
+      "30": [
+        {
+          "rank": "feast",
+          "key": "andrew",
+          "title": "Saint Andrew the Apostle"
+        }
+      ]
+    },
+    "12": {
+      "3": [
+        {
+          "rank": "memorial",
+          "key": "francis_xavier",
+          "title": "Saint Francis Xavier, priest"
+        }
+      ],
+      "4": [
+        {
+          "key": "john_damascene",
+          "title": "Saint John Damascene, priest and doctor"
+        }
+      ],
+      "6": [
+        {
+          "key": "nicholas",
+          "title": "Saint Nicholas, bishop"
+        }
+      ],
+      "7": [
+        {
+          "rank": "memorial",
+          "key": "ambrose",
+          "title": "Saint Ambrose, bishop and doctor"
+        }
+      ],
+      "8": [
+        {
+          "rank": "solemnity",
+          "key": "bvm_immaculate",
+          "title": "Immaculate Conception of the Blessed Virgin Mary"
+        }
+      ],
+      "9": [
+        {
+          "key": "juan_diego",
+          "title": "Saint Juan Diego"
+        }
+      ],
+      "10": [
+        {
+          "key": "bvm_loreto",
+          "title": "Our Lady of Loreto"
+        }
+      ],
+      "11": [
+        {
+          "key": "damasus_i",
+          "title": "Saint Damasus I, pope"
+        }
+      ],
+      "12": [
+        {
+          "key": "bvm_guadalupe",
+          "title": "Our Lady of Guadalupe"
+        }
+      ],
+      "13": [
+        {
+          "rank": "memorial",
+          "key": "lucy",
+          "title": "Saint Lucy of Syracuse, virgin and martyr"
+        }
+      ],
+      "14": [
+        {
+          "rank": "memorial",
+          "key": "john_of_cross",
+          "title": "Saint John of the Cross, priest and doctor"
+        }
+      ],
+      "21": [
+        {
+          "key": "canisius",
+          "title": "Saint Peter Canisius, priest and doctor"
+        }
+      ],
+      "23": [
+        {
+          "key": "john_of_kanty",
+          "title": "Saint John of Kanty, priest"
+        }
+      ],
+      "26": [
+        {
+          "rank": "feast",
+          "key": "stephen",
+          "title": "Saint Stephen, the first martyr"
+        }
+      ],
+      "27": [
+        {
+          "rank": "feast",
+          "key": "john_evangelist",
+          "title": "Saint John the Apostle and evangelist"
+        }
+      ],
+      "28": [
+        {
+          "rank": "feast",
+          "key": "innocents",
+          "title": "Holy Innocents, martyrs"
+        }
+      ],
+      "29": [
+        {
+          "key": "becket",
+          "title": "Saint Thomas Becket, bishop and martyr"
+        }
+      ],
+      "31": [
+        {
+          "key": "sylvester_i",
+          "title": "Saint Sylvester I, pope"
+        }
+      ]
+    }
+  }
+}

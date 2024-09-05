@@ -20,6 +20,7 @@ repositories {
 }
 
 dependencies {
+	implementation ("com.fasterxml.jackson.module:jackson-module-kotlin:2.17.+")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-mustache")
 	//implementation("org.springframework.boot:spring-boot-starter-security")

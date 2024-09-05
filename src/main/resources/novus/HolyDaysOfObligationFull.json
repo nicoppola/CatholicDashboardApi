@@ -1,0 +1,84 @@
+{
+  "dataSource": "https://hallow.com/blog/holy-days-of-obligation/",
+  "note": "Vary by country; Bishops have authority to suppress Holy Days or move them to Sundays.",
+  "0": [
+    {
+      "date": "",
+      "key": "ascension",
+      "rank": "solemnity",
+      "title": "The Solemnity of the Ascension",
+      "dateNote": "Thursday of the sixth week of Easter, transferred to the following Sunday in some diocese"
+    },
+    {
+      "date": "",
+      "rank": "solemnity",
+      "key": "corpus_christi",
+      "title": "The Most Holy Body and Blood of Christ (Corpus Christi)",
+      "dateNote": "Sunday after the Most Holy Trinity"
+    }
+  ],
+  "1": [
+    {
+      "date": "",
+      "rank": "solemnity",
+      "key": "epiphany",
+      "title": "The Epiphany of the Lord",
+      "dateNote": "Sunday between Jan 2 and 8"
+    },
+    {
+      "date": "1",
+      "key": "mary_mother_god",
+      "rank": "solemnity",
+      "title": "The Solemnity of Mary, Mother of God",
+      "note": "If it falls on a Saturday or on a Monday, the precept to attend Mass is abrogated."
+    }
+  ],
+  "3": [
+    {
+      "date": "19",
+      "rank": "solemnity",
+      "key": "joseph",
+      "title": "Saint Joseph Husband of the Blessed Virgin Mary"
+    }
+  ],
+  "6": [
+    {
+      "date": "29",
+      "rank": "solemnity",
+      "key": "peter_paul",
+      "title": "Saints Peter and Paul, Apostles"
+    }
+  ],
+  "8": [
+    {
+      "date": "15",
+      "key": "assumption",
+      "rank": "solemnity",
+      "title": "The Solemnity of the Assumption of the Blessed Virgin Mary",
+      "note": "If it falls on a Saturday or on a Monday, the precept to attend Mass is abrogated."
+    }
+  ],
+  "11": [
+    {
+      "date": "1",
+      "key": "all_saints",
+      "rank": "solemnity",
+      "title": "The Solemnity of All Saints",
+      "note": "If it falls on a Saturday or on a Monday, the precept to attend Mass is abrogated."
+    }
+  ],
+  "12": [
+    {
+      "date": "8",
+      "key": "immaculate_conception",
+      "rank": "solemnity",
+      "title": "The Solemnity of the Immaculate Conception"
+    },
+    {
+      "date": "25",
+      "key": "christmas",
+      "rank": "solemnity",
+      "title": "The Solemnity of the Nativity of Our Lord Jesus Christ"
+    }
+  ]
+}

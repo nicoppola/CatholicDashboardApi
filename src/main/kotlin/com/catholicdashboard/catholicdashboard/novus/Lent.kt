@@ -2,18 +2,15 @@ package com.catholicdashboard.catholicdashboard.novus
 
 import com.catholicdashboard.catholicdashboard.model.CalendarData
 import com.catholicdashboard.catholicdashboard.novus.data.EasterDates
+import com.catholicdashboard.catholicdashboard.util.getOrdinal
 import com.catholicdashboard.catholicdashboard.util.rangeTo
 import java.io.IOException
+import java.time.DayOfWeek
 
 fun CalendarData.addLent(): CalendarData {
     val easterDay = EasterDates.get(this.year) ?: throw IOException("Must have an easter date")
     val ashWednesday = easterDay.minusDays(46)
-    val firstSundayLent = ashWednesday.plusDays(4)
-    val secondSundayLent = firstSundayLent.plusWeeks(1)
-    val thirdSundayLent = secondSundayLent.plusWeeks(1)
-    val fourthSundayLent = thirdSundayLent.plusWeeks(1)
-    val fifthSundayLent = fourthSundayLent.plusWeeks(1)
-    val palmSunday = fifthSundayLent.plusWeeks(1)
+    val palmSunday = easterDay.minusWeeks(1)
 
     this.setSeasonAndColor(ashWednesday, "Ash Wednesday", CalendarData.Color.WHITE)
     this.setSeasonAndColor(
@@ -32,49 +29,25 @@ fun CalendarData.addLent(): CalendarData {
         CalendarData.Color.WHITE
     )
 
-    this.setSeasonAndColor(
-        firstSundayLent,
-        "First Sunday of Lent",
-        CalendarData.Color.PURPLE
-    )
-    for (day in firstSundayLent.plusDays(1).rangeTo(secondSundayLent.minusDays(1))) {
-        this.setSeasonAndColor(day, "First Week of Lent", CalendarData.Color.PURPLE)
-    }
+    var currDay = ashWednesday.plusDays(4)
+    var weekCount = 0
+    while (currDay != palmSunday){
+        var seasonString = if(currDay.dayOfWeek == DayOfWeek.SUNDAY){
+            weekCount ++
+            "${currDay.dayOfWeek.value.getOrdinal()} Sunday of Lent"
+        } else {
+            "${currDay.dayOfWeek.value.getOrdinal()} Week of Lent"
+        }
+        var color =  CalendarData.Color.PURPLE
 
-    this.setSeasonAndColor(
-        secondSundayLent,
-        "Second Sunday of Lent",
-        CalendarData.Color.PURPLE
-    )
-    for (day in secondSundayLent.plusDays(1).rangeTo(thirdSundayLent.minusDays(1))) {
-        this.setSeasonAndColor(day, "Second Week of Lent", CalendarData.Color.PURPLE)
-    }
+        // Laetare Sunday
+        if(currDay.dayOfWeek == DayOfWeek.SUNDAY && weekCount == 4){
+            seasonString = "Laetare Sunday, Fourth Sunday of Advent"
+            color = CalendarData.Color.ROSE
+        }
 
-    this.setSeasonAndColor(
-        thirdSundayLent,
-        "Third Sunday of Lent",
-        CalendarData.Color.PURPLE
-    )
-    for (day in thirdSundayLent.plusDays(1).rangeTo(fourthSundayLent.minusDays(1))) {
-        this.setSeasonAndColor(day, "Third Week of Lent", CalendarData.Color.PURPLE)
-    }
-
-    this.setSeasonAndColor(
-        fourthSundayLent,
-        "Laetare Sunday, Fourth Sunday of Lent",
-        CalendarData.Color.ROSE
-    )
-    for (day in fourthSundayLent.plusDays(1).rangeTo(fifthSundayLent.minusDays(1))) {
-        this.setSeasonAndColor(day, "Fourth Week of Lent", CalendarData.Color.PURPLE)
-    }
-
-    this.setSeasonAndColor(
-        fifthSundayLent,
-        "Fifth Sunday of Lent",
-        CalendarData.Color.PURPLE
-    )
-    for (day in fifthSundayLent.plusDays(1).rangeTo(fourthSundayLent.minusDays(1))) {
-        this.setSeasonAndColor(day, "Fourth Week of Lent", CalendarData.Color.PURPLE)
+        this.setSeasonAndColor(currDay, seasonString, color)
+        currDay = currDay.plusDays(1)
     }
 
     this.setSeasonAndColor(
@@ -85,7 +58,7 @@ fun CalendarData.addLent(): CalendarData {
     for (day in palmSunday.plusDays(1).rangeTo(palmSunday.plusDays(3))) {
         this.setSeasonAndColor(
             day,
-            "${day.dayOfWeek.name.toFirstLetterCapital()} of Holy Week",
+            "${day.getFormattedDayOfWeek()} of Holy Week",
             CalendarData.Color.PURPLE
         )
     }

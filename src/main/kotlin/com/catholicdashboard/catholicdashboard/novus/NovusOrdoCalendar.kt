@@ -18,6 +18,7 @@ class NovusOrdoCalendar() {
                 .addUsaProperSaints()
                 .addUsaHolyDaysOfObligation()
                 .addSeasonalData()
+                .addOrdinaryTime()
 
         return calendarData
     }
@@ -69,14 +70,12 @@ class NovusOrdoCalendar() {
         this.addAdvent()
         this.addChristmas()
         this.addLent()
-
-        //Easter
+        this.addEaster()
         //Ordinary
 
 
         return this
     }
-
 
     private fun getEmptyCalendar(year: Int): CalendarData {
         return CalendarData(

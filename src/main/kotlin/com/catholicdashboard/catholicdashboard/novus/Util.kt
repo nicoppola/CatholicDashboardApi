@@ -13,6 +13,10 @@ fun CalendarData.setSeasonAndColor(
     this.months[localDate.month.value]?.get(localDate.dayOfMonth)?.color = color.name
 }
 
-fun String.toFirstLetterCapital(): String{
+fun LocalDate.getFormattedDayOfWeek(): String {
+    return this.dayOfWeek.name.toFirstLetterCapital()
+}
+
+fun String.toFirstLetterCapital(): String {
     return this.lowercase(Locale.getDefault()).replaceFirstChar { c -> c.uppercaseChar() }
 }

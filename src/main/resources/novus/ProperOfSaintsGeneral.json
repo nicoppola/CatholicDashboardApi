@@ -4,16 +4,6 @@
     "https://github.com/igneus/calendarium-romanum/blob/master/data/universal-en.txt"
   ],
   "map": {
-    "0": {
-      "0": [
-        {
-          "rank": "memorial",
-          "key": "mary_mother_church",
-          "title": "Memorial of the Blessed Virgin Mary, Mother of the Church",
-          "dateNote": "Monday after Pentecost"
-        }
-      ]
-    },
     "1": {
       "2": [
         {

@@ -11,10 +11,9 @@ fun CalendarData.addChristmas(): CalendarData {
     val christmasDay = LocalDate.of(this.year.toInt(), Month.DECEMBER, 25)
     val christmasAfterOctave = LocalDate.of(this.year.toInt(), Month.JANUARY, 2)
     val epiphany = this.getEpiphany()
-    val baptism = this.getBaptismOfLord()
     // Baptism of the Lord
 
-    this.setSeasonAndColor(christmasDay, "Christmas Day", CalendarData.Color.WHITE)
+    this.setSolemnity(christmasDay, "Christmas Day", "christmas")
 
     //octave
     var currDay = christmasDay.plusDays(1)
@@ -44,18 +43,6 @@ fun CalendarData.addChristmas(): CalendarData {
             CalendarData.Color.WHITE
         )
     }
-
-    this.setSeasonAndColor(
-        epiphany,
-        "Epiphany of the Lord",
-        CalendarData.Color.WHITE
-    )
-
-    this.setSeasonAndColor(
-        baptism,
-        "Baptism of the Lord",
-        CalendarData.Color.WHITE
-    )
 
     return this
 }

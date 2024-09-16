@@ -4,5 +4,5 @@ import java.io.Serializable
 
 data class ProperOfSaints(
     val dataSource: List<String>?,
-    val map: Map<String, Map<String, List<CalendarData.Saint>>>,
+    val map: Map<String, Map<String, List<CalendarData.Proper>>>,
 ): Serializable

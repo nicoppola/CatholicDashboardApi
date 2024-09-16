@@ -6,11 +6,12 @@ import com.catholicdashboard.catholicdashboard.util.getOrdinal
 import com.catholicdashboard.catholicdashboard.util.rangeTo
 import java.io.IOException
 import java.time.DayOfWeek
+import java.time.LocalDate
 
 fun CalendarData.addEaster(): CalendarData {
-    val easterDay = EasterDates.get(this.year) ?: throw IOException("Must have an easter date")
+    val easterDay = this.getEaster()
     val divineMercySunday = easterDay.plusWeeks(1)
-    val pentecostSunday = easterDay.plusWeeks(7)
+    val pentecostSunday = this.getPentecost()
 
     this.setSeasonAndColor(
         easterDay,
@@ -54,14 +55,13 @@ fun CalendarData.addEaster(): CalendarData {
         CalendarData.Color.WHITE
     )
 
-    // todo Most Holy Trinity?
-    this.setSeasonAndColor(
-        pentecostSunday.plusWeeks(1),
-        "The Most Holy Trinity",
-        CalendarData.Color.WHITE
-    )
-
-    //todo corpus cristi
-
     return this
+}
+
+fun CalendarData.getEaster(): LocalDate {
+    return EasterDates.get(this.year) ?: throw IOException("Must have an easter date")
+}
+
+fun CalendarData.getPentecost(): LocalDate {
+    return this.getEaster().plusWeeks(7)
 }

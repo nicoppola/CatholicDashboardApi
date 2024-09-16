@@ -10,15 +10,33 @@ data class CalendarData(
         val date: String,
         var season: String,
         var color: String,
-        val saints: MutableList<Saint>,
+        val readings: Readings,
+        val office: Office,
+        val proper: MutableList<Proper>,
     ): Serializable
 
-    data class Saint(
+    data class Office(
+        val link: String,
+        val morning: String,
+        val midMorning: String,
+        val midday: String,
+        val midAfternoon: String,
+        val evening: String,
+        val night: String,
+    )
+
+    data class Readings(
+        val link: String,
+//        val readingOne: String,
+//        val psalm: String,
+//        val readingTwo: String?,
+//        val gospel: String,
+    ): Serializable
+
+    data class Proper(
         val key: String?,
         val rank: String?,
         val title: String?,
-        val dateNote: String?,
-        val note: String?,
     ): Serializable
 
     enum class Color(value: String){

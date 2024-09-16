@@ -3,25 +3,7 @@
     "https://www.usccb.org/prayer-and-worship/liturgical-year-and-calendar/proper-calendar"
   ],
   "map": {
-    "0": {
-      "0": [
-        {
-          "rank": "solemnity",
-          "key": "corpus_christi",
-          "title": "The Most Holy Body and Blood of Christ (Corpus Christi)",
-          "dateNote": "Sunday after the Most Holy Trinity"
-        }
-      ]
-    },
     "1": {
-      "0": [
-        {
-          "rank": "solemnity",
-          "key": "epiphany",
-          "title": "The Epiphany of the Lord",
-          "dateNote": "Sunday between Jan 2 and 8"
-        }
-      ],
       "4": [
         {
           "rank": "memorial",
@@ -40,14 +22,6 @@
         {
           "key": "bessette",
           "title": "Saint André Bessette, Religious"
-        }
-      ],
-      "22": [
-        {
-          "rank": "memorial",
-          "dateNote": "Moved to 23rd if 22nd falls on a Sunday",
-          "key": "unborn",
-          "title": "Day of Prayer for the Legal Protection of Unborn Children"
         }
       ],
       "23": [

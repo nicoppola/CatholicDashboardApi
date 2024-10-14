@@ -45,3 +45,7 @@ kotlin {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+tasks.jar {
+	from(sourceSets.main.get().output)
+}

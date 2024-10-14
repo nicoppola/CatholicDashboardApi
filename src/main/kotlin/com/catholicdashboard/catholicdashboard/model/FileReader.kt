@@ -3,52 +3,56 @@ package com.catholicdashboard.catholicdashboard.model
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.core.io.ClassPathResource
+import org.springframework.core.io.Resource
 import org.springframework.core.io.ResourceLoader
-import java.io.File
-import java.io.FileNotFoundException
-import java.io.FileWriter
+import org.springframework.stereotype.Service
 import java.nio.file.Files
+import java.nio.file.Paths
 
-class FileReader {
-    @Autowired
-    private lateinit var resourceLoader: ResourceLoader
+@Service
+class FileReader @Autowired constructor(private val resourceLoader: ResourceLoader) {
 
-    companion object {
-        inline fun <reified T> getFile(fileName: String): T? {
-            val mapper = jacksonObjectMapper()
-            try {
-                val jsonFile = ClassPathResource(fileName).file
-                val str = Files.readString(jsonFile.toPath())
-                return mapper.readValue(str, T::class.java)
-            } catch (e: Exception) {
-                println("***************************EXCEPTION***************************")
-                println(e)
+    fun <T> getFile(fileName: String, clazz: Class<T>): T? {
+        val mapper = jacksonObjectMapper()
+        return try {
+            val resource = resourceLoader.getResource("classpath:$fileName")
+            resource.inputStream.use { inputStream ->
+                mapper.readValue(inputStream, clazz)
             }
-            return null
+        } catch (e: Exception) {
+            println("***************************EXCEPTION***************************")
+            println(e)
+            null
         }
+    }
 
-        fun writeToFile(fileName: String, data: CalendarData) {
-           // "novus/calendar$year.json"
-            val filePrefix = "src/main/resources/"
-            val fullPath = filePrefix+fileName.removePrefix("/")
-            val mapper = jacksonObjectMapper()
-            try{
+    fun writeToFile(fileName: String, data: CalendarData) {
+        // "novus/calendar$year.json"
+//        val filePrefix = "src/main/resources/"
+//        val fullPath = filePrefix+fileName.removePrefix("/")
+
+        val resource: Resource = resourceLoader.getResource("classpath:$fileName")
+        val mapper = jacksonObjectMapper()
+        try{
+            val fullPath = Paths.get(resource.toString(), fileName)
+            Files.createDirectories(fullPath.parent)
+            Files.newOutputStream(fullPath).use { outputStream ->
                 val writer = mapper.writer(DefaultPrettyPrinter())
-                File(fullPath).createNewFile()
-                writer.writeValue(File(fullPath), data)
-            } catch (e: Exception){
-                println("***************************EXCEPTION***************************")
-                println(e)}
-        }
-
-        fun doesFileExist(fileName: String): Boolean {
-            try {
-                val jsonFile = ClassPathResource(fileName).file
-            } catch (e: FileNotFoundException){
-                return false
+                writer.writeValue(outputStream, data)
             }
-            return true
+        } catch (e: Exception){
+            println("***************************EXCEPTION***************************")
+            println(e)}
+    }
+
+    fun doesFileExist(fileName: String): Boolean {
+        return try {
+            val resource: Resource = resourceLoader.getResource("classpath:$fileName")
+            resource.exists()
+        } catch (e: Exception) {
+            println("***************************EXCEPTION***************************")
+            println(e)
+            false
         }
     }
 }

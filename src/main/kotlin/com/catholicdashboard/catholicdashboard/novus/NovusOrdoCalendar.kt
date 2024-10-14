@@ -3,13 +3,14 @@ package com.catholicdashboard.catholicdashboard.novus
 import com.catholicdashboard.catholicdashboard.model.CalendarData
 import com.catholicdashboard.catholicdashboard.model.FileReader
 import com.catholicdashboard.catholicdashboard.model.ProperOfSaints
+import org.springframework.beans.factory.annotation.Autowired
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.Month
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 
-class NovusOrdoCalendar {
+class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReader){
 
     private val calendar: MutableMap<Int, CalendarData?> = mutableMapOf()
 
@@ -58,7 +59,8 @@ class NovusOrdoCalendar {
         calendar[date.year]?.months?.get(date.month.value)?.get(date.dayOfMonth)?.readings =
             readings.copy(title = title)
         calendar[date.year]?.let {
-            FileReader.writeToFile(fileName(date.year), it)
+//            FileReader.writeToFile(fileName(date.year), it)
+            fileReader.writeToFile(fileName(date.year), it)
         }
 
         return readings.copy(title = title)
@@ -71,15 +73,18 @@ class NovusOrdoCalendar {
     private fun ensureCalendarExists(year: Int) {
         if (!calendar.containsKey(year)) {
             val fileName = fileName(year)
-            if (FileReader.doesFileExist(fileName)) {
+            if (fileReader.doesFileExist(fileName)) {
                 println("************** Calendar Exists **************")
-                calendar[year] = FileReader.getFile<CalendarData>(fileName)
+                //calendar[year] = FileReader.getFile<CalendarData>(fileName)
+                calendar[year] = fileReader.getFile(fileName, CalendarData::class.java)
+
             } else {
                 println("************** Generating Calendar **************")
                 val calendarData = generateCalendar(year)
 
                 calendar[year] = calendarData
-                FileReader.writeToFile(fileName, calendarData)
+//                FileReader.writeToFile(fileName, calendarData)
+                fileReader.writeToFile(fileName, calendarData)
             }
         }
     }
@@ -107,7 +112,8 @@ class NovusOrdoCalendar {
 
     private fun CalendarData.addGeneralProperSaints(): CalendarData {
 
-        val saints = FileReader.getFile<ProperOfSaints>("novus/ProperOfSaintsGeneral.json")
+//        val saints = FileReader.getFile<ProperOfSaints>("novus/ProperOfSaintsGeneral.json")
+       val saints = fileReader.getFile("novus/ProperOfSaintsGeneral.json", ProperOfSaints::class.java)
         saints?.map?.forEach { (month, day) ->
             day.forEach { (day, saints) ->
                 this.addSanctorale(day.toInt(), month.toInt(), saints)
@@ -118,7 +124,8 @@ class NovusOrdoCalendar {
     }
 
     private fun CalendarData.addUsaProperSaints(): CalendarData {
-        val saints = FileReader.getFile<ProperOfSaints>("novus/ProperOfSaintsUsa.json")
+//        val saints = FileReader.getFile<ProperOfSaints>("novus/ProperOfSaintsUsa.json")
+        val saints = fileReader.getFile("novus/ProperOfSaintsUsa.json", ProperOfSaints::class.java)
         saints?.map?.forEach { (month, day) ->
             day.forEach { (day, saints) ->
                 // fixed days

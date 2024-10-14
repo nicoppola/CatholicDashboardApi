@@ -1,5 +1,5 @@
 # Build
-FROM gradle:7.2-jdk17 AS build
+FROM gradle:8.8.0-jdk17 AS build
 WORKDIR /app
 
 # Copy project files
@@ -11,7 +11,7 @@ RUN gradle build --no-daemon
 
 # Run stage
 # Example of custom Java runtime using jlink in a multi-stage container build
-FROM eclipse-temurin:21 as jre-build
+FROM eclipse-temurin:17-jdk-jammy as jre-build
 
 # Create a custom Java runtime
 RUN $JAVA_HOME/bin/jlink \

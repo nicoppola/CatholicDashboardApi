@@ -1,7 +1,5 @@
 # Build
 FROM gradle:7.2-jdk11 AS build
-RUN addgroup -S spring && adduser -S spring -G spring
-USER spring:spring
 WORKDIR /app
 
 # Copy project files

@@ -11,7 +11,86 @@ import java.time.format.DateTimeFormatter
 
 class NovusOrdoCalendar {
 
-    fun generateCalendar(year: Int): CalendarData {
+    private val calendar: MutableMap<Int, CalendarData?> = mutableMapOf()
+
+    fun getDay(day: Int, month: Int, year: Int): CalendarData.Day {
+        ensureCalendarExists(year)
+        val data = calendar[year]?.months?.get(month)?.get(day)
+            ?: throw Exception("CANNOT FIND DAY! day: $day month $month year $year")
+
+        val localDate = LocalDate.of(year, month, day)
+
+        val orderedData = setTitleAndColor(data, localDate.dayOfWeek)
+
+        return if (orderedData.readings == null) {
+            println("************** Getting Readings $localDate **************")
+            val readings = updateCacheWithReadings(localDate)
+            orderedData.copy(readings = readings)
+        } else {
+            println("************** Readings Exist $localDate **************")
+            orderedData
+        }
+    }
+
+    private fun setTitleAndColor(day: CalendarData.Day, dayOfWeek: DayOfWeek): CalendarData.Day {
+        val solemnity = day.proper.filter { it.rank == CalendarData.Rank.SOLEMNITY }
+        val feast = day.proper.filter { it.rank == CalendarData.Rank.FEAST }
+        val memorial = day.proper.filter { it.rank == CalendarData.Rank.MEMORIAL }
+        return if (solemnity.isNotEmpty()) {
+            if (solemnity.size > 1) println("***** WHY ARE THERE MORE THAN ONE SOLEMNITY IN A DAY")
+            day.copy(title = "The Solemnity of " + solemnity.first().title, color = solemnity.first().color)
+        } else if (dayOfWeek != DayOfWeek.SUNDAY && feast.isNotEmpty()) {
+            if (feast.size > 1) println("***** WHY ARE THERE MORE THAN ONE FEASTS IN A DAY")
+            day.copy(title = "The Feast of " + feast.first().title, color = feast.first().color)
+        } else if (dayOfWeek != DayOfWeek.SUNDAY && memorial.isNotEmpty()) {
+            if (memorial.size > 1) println("***** WHY ARE THERE MORE THAN ONE MEMORIAL IN A DAY")
+            day.copy(title = "The Memorial of " + memorial.first().title, color = memorial.first().color)
+        } else {
+            day
+        }
+    }
+
+    private fun updateCacheWithReadings(date: LocalDate): CalendarData.Readings {
+        val usccb = UsccbParser(date)
+        val readings = usccb.getReadings()
+        val title = usccb.getTitle()
+
+        calendar[date.year]?.months?.get(date.month.value)?.get(date.dayOfMonth)?.readings =
+            readings.copy(title = title)
+        calendar[date.year]?.let {
+            FileReader.writeToFile(fileName(date.year), it)
+        }
+
+        return readings.copy(title = title)
+    }
+
+    private fun fileName(year: Int): String {
+        return "novus/calendar$year.json"
+    }
+
+    private fun ensureCalendarExists(year: Int) {
+        if (!calendar.containsKey(year)) {
+            val fileName = fileName(year)
+            if (FileReader.doesFileExist(fileName)) {
+                println("************** Calendar Exists **************")
+                calendar[year] = FileReader.getFile<CalendarData>(fileName)
+            } else {
+                println("************** Generating Calendar **************")
+                val calendarData = generateCalendar(year)
+
+                calendar[year] = calendarData
+                FileReader.writeToFile(fileName, calendarData)
+            }
+        }
+    }
+
+    fun getCalendar(year: Int): CalendarData {
+        ensureCalendarExists(year)
+        return calendar[year]
+            ?: throw Exception("CANNOT FIND CALENDAR! year $year")
+    }
+
+    private fun generateCalendar(year: Int): CalendarData {
         // check cache; if no calendar, generate
 
         val calendarData =
@@ -75,36 +154,11 @@ class NovusOrdoCalendar {
         if (date.dayOfWeek == DayOfWeek.SUNDAY) date = date.plusDays(1)
         val proper = CalendarData.Proper(
             key = "unborn",
-            rank = "memorial",
+            rank = CalendarData.Rank.MEMORIAL,
             title = "Day of Prayer for the Legal Protection of Unborn Children",
+            color = CalendarData.Color.WHITE,
         )
         this.addSanctorale(date, listOf(proper))
-        return this
-    }
-
-    private fun CalendarData.addUsaHolyDaysOfObligationOld(): CalendarData {
-        val saints = FileReader.getFile<ProperOfSaints>("novus/HolyDaysOfObligationUsa.json")
-        saints?.map?.forEach { (month, day) ->
-            day.forEach { (day, saints) ->
-                // fixed days
-                if (day != "0") {
-                    this.addSanctorale(day.toInt(), month.toInt(), saints)
-                }
-                // movable
-                else {
-                    saints.forEach { saint ->
-                        when (saint.key) {
-                            "ascension" -> {
-                                // thursday of the 6th week of Easter (most diocese move to Sunday)
-                                val calculatedDay =
-                                    getEaster().plusWeeks(6) // or .plusWeeks(5).plusDays(4)
-                                this.addSanctorale(calculatedDay, listOf(saint))
-                            }
-                        }
-                    }
-                }
-            }
-        }
         return this
     }
 
@@ -168,8 +222,8 @@ class NovusOrdoCalendar {
                 val date = LocalDate.of(year, month, day)
                 daysMap[day] = CalendarData.Day(
                     date = date.format(DateTimeFormatter.ofPattern("MMMM d, u")),
-                    season = "",
-                    color = "",
+                    title = "",
+                    color = CalendarData.Color.UNDEFINED,
                     readings = getReadings(date),
                     office = getOffice(date),
                     proper = mutableListOf(),
@@ -193,8 +247,16 @@ class NovusOrdoCalendar {
         )
     }
 
-    private fun getReadings(date: LocalDate): CalendarData.Readings {
-        val dateFormatted = date.format(DateTimeFormatter.ofPattern("MMddyy"))
-        return CalendarData.Readings(link = "https://bible.usccb.org/bible/readings/$dateFormatted.cfm")
+    private fun getReadings(date: LocalDate): CalendarData.Readings? {
+        //NOTE populated as we go from usccb html parser
+        return null
+//        val dateFormatted = date.format(DateTimeFormatter.ofPattern("MMddyy"))
+//        return CalendarData.Readings(
+//            link = "https://bible.usccb.org/bible/readings/$dateFormatted.cfm",
+//            readingOne = "",
+//            psalm = "",
+//            readingTwo = "",
+//            gospel = "",
+//        )
     }
 }

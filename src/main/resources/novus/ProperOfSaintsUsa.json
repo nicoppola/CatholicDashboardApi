@@ -6,14 +6,14 @@
     "1": {
       "4": [
         {
-          "rank": "memorial",
+          "rank": "MEMORIAL",
           "key": "elizabeth_ann_seton",
           "title": "Saint Elizabeth Ann Seton, Religious"
         }
       ],
       "5": [
         {
-          "rank": "memorial",
+          "rank": "MEMORIAL",
           "key": "neumann",
           "title": "Saint John Neumann, Bishop"
         }
@@ -75,7 +75,7 @@
       "14": [
         {
           "key": "kateri",
-          "rank": "memorial",
+          "rank": "MEMORIAL",
           "title": "Saint Kateri Tekakwitha, Virgin"
         }
       ],
@@ -89,7 +89,7 @@
     "9": {
       "9": [
         {
-          "rank": "memorial",
+          "rank": "MEMORIAL",
           "key": "peter_claver",
           "title": "Saint Peter Claver, Priest"
         }
@@ -111,8 +111,9 @@
       "19": [
         {
           "key": "john_isaac",
-          "rank": "memorial",
-          "title": "Saints John de Brébeuf and Isaac Jogues, Priests, and Companions, Martyrs"
+          "rank": "MEMORIAL",
+          "title": "Saints John de Brébeuf and Isaac Jogues, Priests, and Companions, Martyrs",
+          "color": "RED"
         }
       ],
       "20": [
@@ -126,7 +127,7 @@
       "13": [
         {
           "key": "cabrini",
-          "rank": "memorial",
+          "rank": "MEMORIAL",
           "title": "Saint Frances Xavier Cabrini, Virgin"
         }
       ],
@@ -139,7 +140,8 @@
       "23": [
         {
           "key": "miguel_pro",
-          "title": "Blessed Miguel Agustín Pro, Priest and Martyr"
+          "title": "Blessed Miguel Agustín Pro, Priest and Martyr",
+          "color": "RED"
         }
       ],
       "0": [
@@ -153,14 +155,15 @@
       "8": [
         {
           "key": "immaculate_conception",
-          "rank": "solemnity",
-          "title": "Immaculate Conception of the Blessed Virgin Mary, Patronal Feastday of the United States of America"
+          "rank": "SOLEMNITY",
+          "title": "Immaculate Conception of the Blessed Virgin Mary, Patronal Feast Day of the United States of America",
+          "color": "WHITE"
         }
       ],
       "12": [
         {
           "key": "lady_guadalupe",
-          "rank": "feast",
+          "rank": "FEAST",
           "title": "Our Lady of Guadalupe"
         }
       ]

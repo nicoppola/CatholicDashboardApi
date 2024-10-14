@@ -9,8 +9,8 @@ fun CalendarData.setSeasonAndColor(
     season: String,
     color: CalendarData.Color
 ) {
-    this.months[localDate.month.value]?.get(localDate.dayOfMonth)?.season = season
-    this.months[localDate.month.value]?.get(localDate.dayOfMonth)?.color = color.name
+    this.months[localDate.month.value]?.get(localDate.dayOfMonth)?.title = season
+    this.months[localDate.month.value]?.get(localDate.dayOfMonth)?.color = color
 }
 
 fun CalendarData.setSolemnity(
@@ -21,7 +21,14 @@ fun CalendarData.setSolemnity(
     this.setSeasonAndColor(localDate, season, CalendarData.Color.WHITE)
     this.addSanctorale(
         localDate,
-        listOf(CalendarData.Proper(key = key, rank = "solemnity", title = season))
+        listOf(
+            CalendarData.Proper(
+                key = key,
+                rank = CalendarData.Rank.SOLEMNITY,
+                title = season,
+                color = CalendarData.Color.WHITE,
+            )
+        )
     )
 }
 

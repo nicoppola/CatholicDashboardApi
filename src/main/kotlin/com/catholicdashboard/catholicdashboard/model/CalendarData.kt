@@ -8,9 +8,9 @@ data class CalendarData(
 ): Serializable{
     data class Day(
         val date: String,
-        var season: String,
-        var color: String,
-        val readings: Readings,
+        var title: String,
+        var color: Color,
+        var readings: Readings?,
         val office: Office,
         val proper: MutableList<Proper>,
     ): Serializable
@@ -26,24 +26,37 @@ data class CalendarData(
     )
 
     data class Readings(
-        val link: String,
-//        val readingOne: String,
-//        val psalm: String,
-//        val readingTwo: String?,
-//        val gospel: String,
+        val link: String = "",
+        val readingOne: String = "",
+        val psalm: String = "",
+        val readingTwo: String? = null,
+        val gospel: String = "",
+        val title: String = "",
     ): Serializable
 
     data class Proper(
         val key: String?,
-        val rank: String?,
-        val title: String?,
+        val rank: Rank = Rank.OPTIONAL_MEMORIAL,
+        val title: String = "",
+        val color: Color = Color.GREEN,
     ): Serializable
 
-    enum class Color(value: String){
+    enum class Color(value: String): Serializable{
         GREEN("green"),
         PURPLE("purple"),
         ROSE("rose"),
         WHITE("white"),
         RED("red"),
+        UNDEFINED("undefined");
+    } 
+
+    //rank order 0 is highest
+    enum class Rank(value: String, rank: Int) {
+        SOLEMNITY("Solemnity", 1),
+        SUNDAY("Sunday", 2),
+        FEAST("Feast", 3),
+        MEMORIAL("Memorial", 4),
+        OPTIONAL_MEMORIAL("Optional Memorial", 5),
+        FERIA("Feria", 6);
     }
 }

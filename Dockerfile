@@ -1,5 +1,5 @@
 # Build
-FROM gradle:7.2-jdk11 AS build
+FROM gradle:7.2-jdk17 AS build
 WORKDIR /app
 
 # Copy project files
@@ -10,7 +10,7 @@ COPY src ./src
 RUN gradle build --no-daemon
 
 # Run stage
-FROM openjdk:11-jre-slim
+FROM openjdk:17-jre-slim
 
 WORKDIR /app
 

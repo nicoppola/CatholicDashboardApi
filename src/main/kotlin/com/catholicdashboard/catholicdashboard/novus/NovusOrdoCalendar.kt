@@ -4,6 +4,7 @@ import com.catholicdashboard.catholicdashboard.model.CalendarData
 import com.catholicdashboard.catholicdashboard.model.FileReader
 import com.catholicdashboard.catholicdashboard.model.ProperOfSaints
 import org.springframework.beans.factory.annotation.Autowired
+import java.time.DateTimeException
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.Month
@@ -273,7 +274,7 @@ class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReade
         return try {
             LocalDate.of(year, month, day)
             true
-        } catch(e: Exception) {
+        } catch(e: DateTimeException) {
             false
         }
     }

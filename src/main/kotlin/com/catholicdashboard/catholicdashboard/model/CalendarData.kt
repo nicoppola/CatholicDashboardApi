@@ -5,24 +5,25 @@ import java.io.Serializable
 data class CalendarData(
     val year: String,
     val months: MutableMap<Int, MutableMap<Int, Day>>,
-): Serializable{
+) : Serializable {
     data class Day(
         val date: String,
         var title: String,
         var color: Color,
         var readings: Readings?,
-        val office: Office,
+        var office: Office?,
         val proper: MutableList<Proper>,
-    ): Serializable
+    ) : Serializable
 
     data class Office(
         val link: String,
-        val morning: String,
-        val midMorning: String,
-        val midday: String,
-        val midAfternoon: String,
-        val evening: String,
-        val night: String,
+        val morning: String? = null,
+        val midMorning: String? = null,
+        val midday: String? = null,
+        val midAfternoon: String? = null,
+        val evening: String? = null,
+        val night: String? = null,
+        val officeOfReadings: String? = null,
     )
 
     data class Readings(
@@ -32,23 +33,23 @@ data class CalendarData(
         val readingTwo: String? = null,
         val gospel: String = "",
         val title: String = "",
-    ): Serializable
+    ) : Serializable
 
     data class Proper(
         val key: String?,
         val rank: Rank = Rank.OPTIONAL_MEMORIAL,
         val title: String = "",
         val color: Color = Color.GREEN,
-    ): Serializable
+    ) : Serializable
 
-    enum class Color(value: String): Serializable{
+    enum class Color(value: String) : Serializable {
         GREEN("green"),
         PURPLE("purple"),
         ROSE("rose"),
         WHITE("white"),
         RED("red"),
         UNDEFINED("undefined");
-    } 
+    }
 
     //rank order 0 is highest
     enum class Rank(value: String, rank: Int) {

@@ -10,7 +10,7 @@ import java.time.Month
 import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 
-class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReader){
+class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReader) {
 
     private val calendar: MutableMap<Int, CalendarData?> = mutableMapOf()
 
@@ -21,16 +21,25 @@ class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReade
 
         val localDate = LocalDate.of(year, month, day)
 
-        val orderedData = setTitleAndColor(data, localDate.dayOfWeek)
+        var orderedData = setTitleAndColor(data, localDate.dayOfWeek)
 
-        return if (orderedData.readings == null) {
+        if (orderedData.readings == null) {
             println("************** Getting Readings $localDate **************")
             val readings = updateCacheWithReadings(localDate)
-            orderedData.copy(readings = readings)
+            orderedData = orderedData.copy(readings = readings)
         } else {
             println("************** Readings Exist $localDate **************")
-            orderedData
         }
+
+        if (orderedData.office == null) {
+            println("************** Getting Office $localDate **************")
+            val office = updateCacheWithOffice(localDate)
+            orderedData = orderedData.copy(office = office)
+        } else {
+            println("************** Office Exist $localDate **************")
+        }
+
+        return orderedData
     }
 
     private fun setTitleAndColor(day: CalendarData.Day, dayOfWeek: DayOfWeek): CalendarData.Day {
@@ -39,27 +48,45 @@ class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReade
         val memorial = day.proper.filter { it.rank == CalendarData.Rank.MEMORIAL }
         return if (solemnity.isNotEmpty()) {
             if (solemnity.size > 1) println("***** WHY ARE THERE MORE THAN ONE SOLEMNITY IN A DAY")
-            day.copy(title = "The Solemnity of " + solemnity.first().title, color = solemnity.first().color)
+            day.copy(
+                title = "The Solemnity of " + solemnity.first().title,
+                color = solemnity.first().color
+            )
         } else if (dayOfWeek != DayOfWeek.SUNDAY && feast.isNotEmpty()) {
             if (feast.size > 1) println("***** WHY ARE THERE MORE THAN ONE FEASTS IN A DAY")
             day.copy(title = "The Feast of " + feast.first().title, color = feast.first().color)
         } else if (dayOfWeek != DayOfWeek.SUNDAY && memorial.isNotEmpty()) {
             if (memorial.size > 1) println("***** WHY ARE THERE MORE THAN ONE MEMORIAL IN A DAY")
-            day.copy(title = "The Memorial of " + memorial.first().title, color = memorial.first().color)
+            day.copy(
+                title = "The Memorial of " + memorial.first().title,
+                color = memorial.first().color
+            )
         } else {
             day
         }
     }
 
+    private fun updateCacheWithOffice(date: LocalDate): CalendarData.Office {
+        val parser = DivineOfficeParser(date)
+        val office = parser.getOffice()
+
+        calendar[date.year]?.months?.get(date.month.value)?.get(date.dayOfMonth)?.office =
+            office
+        calendar[date.year]?.let {
+            fileReader.writeToFile(fileName(date.year), it)
+        }
+
+        return office
+    }
+
     private fun updateCacheWithReadings(date: LocalDate): CalendarData.Readings {
-        val usccb = UsccbParser(date)
-        val readings = usccb.getReadings()
-        val title = usccb.getTitle()
+        val parser = UsccbParser(date)
+        val readings = parser.getReadings()
+        val title = parser.getTitle()
 
         calendar[date.year]?.months?.get(date.month.value)?.get(date.dayOfMonth)?.readings =
             readings.copy(title = title)
         calendar[date.year]?.let {
-//            FileReader.writeToFile(fileName(date.year), it)
             fileReader.writeToFile(fileName(date.year), it)
         }
 
@@ -75,7 +102,6 @@ class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReade
             val fileName = fileName(year)
             if (fileReader.doesFileExist(fileName)) {
                 println("************** Calendar Exists **************")
-                //calendar[year] = FileReader.getFile<CalendarData>(fileName)
                 calendar[year] = fileReader.getFile(fileName, CalendarData::class.java)
 
             } else {
@@ -83,7 +109,6 @@ class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReade
                 val calendarData = generateCalendar(year)
 
                 calendar[year] = calendarData
-//                FileReader.writeToFile(fileName, calendarData)
                 fileReader.writeToFile(fileName, calendarData)
             }
         }
@@ -113,7 +138,8 @@ class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReade
     private fun CalendarData.addGeneralProperSaints(): CalendarData {
 
 //        val saints = FileReader.getFile<ProperOfSaints>("novus/ProperOfSaintsGeneral.json")
-       val saints = fileReader.getFile("novus/ProperOfSaintsGeneral.json", ProperOfSaints::class.java)
+        val saints =
+            fileReader.getFile("novus/ProperOfSaintsGeneral.json", ProperOfSaints::class.java)
         saints?.map?.forEach { (month, day) ->
             day.forEach { (day, saints) ->
                 this.addSanctorale(day.toInt(), month.toInt(), saints)
@@ -124,7 +150,6 @@ class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReade
     }
 
     private fun CalendarData.addUsaProperSaints(): CalendarData {
-//        val saints = FileReader.getFile<ProperOfSaints>("novus/ProperOfSaintsUsa.json")
         val saints = fileReader.getFile("novus/ProperOfSaintsUsa.json", ProperOfSaints::class.java)
         saints?.map?.forEach { (month, day) ->
             day.forEach { (day, saints) ->
@@ -231,39 +256,13 @@ class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReade
                     date = date.format(DateTimeFormatter.ofPattern("MMMM d, u")),
                     title = "",
                     color = CalendarData.Color.UNDEFINED,
-                    readings = getReadings(date),
-                    office = getOffice(date),
+                    readings = null,
+                    office = null,
                     proper = mutableListOf(),
                 )
             }
             retMap[month] = daysMap
         }
         return retMap
-    }
-
-    private fun getOffice(date: LocalDate): CalendarData.Office {
-        val dateFormatted = date.format(DateTimeFormatter.ofPattern("yyyyMMdd"))
-        return CalendarData.Office(
-            link = "https://divineoffice.org/?date=$dateFormatted",
-            morning = "https://divineoffice.org/0909-mp/?date=$dateFormatted",
-            midMorning = "https://divineoffice.org/ord-w03-mon-dp1-comp/?date=$dateFormatted",
-            midday = "https://divineoffice.org/ord-w03-mon-dp2-current/?date=$dateFormatted",
-            midAfternoon = "https://divineoffice.org/ord-w03-mon-dp3-comp/?date=$dateFormatted",
-            evening = "https://divineoffice.org/0909-ep2/?date=$dateFormatted",
-            night = "https://divineoffice.org/ord-mon-np-w1-w3/?date=$dateFormatted",
-        )
-    }
-
-    private fun getReadings(date: LocalDate): CalendarData.Readings? {
-        //NOTE populated as we go from usccb html parser
-        return null
-//        val dateFormatted = date.format(DateTimeFormatter.ofPattern("MMddyy"))
-//        return CalendarData.Readings(
-//            link = "https://bible.usccb.org/bible/readings/$dateFormatted.cfm",
-//            readingOne = "",
-//            psalm = "",
-//            readingTwo = "",
-//            gospel = "",
-//        )
     }
 }

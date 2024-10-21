@@ -27,14 +27,11 @@ class FileReader @Autowired constructor(private val resourceLoader: ResourceLoad
     }
 
     fun writeToFile(fileName: String, data: CalendarData) {
-        // "novus/calendar$year.json"
-//        val filePrefix = "src/main/resources/"
-//        val fullPath = filePrefix+fileName.removePrefix("/")
-
         val resource: Resource = resourceLoader.getResource("classpath:$fileName")
         val mapper = jacksonObjectMapper()
         try{
             val fullPath = Paths.get(resource.toString(), fileName)
+            println("File to write: $fullPath")
             Files.createDirectories(fullPath.parent)
             Files.newOutputStream(fullPath).use { outputStream ->
                 val writer = mapper.writer(DefaultPrettyPrinter())

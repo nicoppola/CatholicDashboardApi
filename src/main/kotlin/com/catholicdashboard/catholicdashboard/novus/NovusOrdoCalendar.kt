@@ -15,6 +15,9 @@ class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReade
     private val calendar: MutableMap<Int, CalendarData?> = mutableMapOf()
 
     fun getDay(day: Int, month: Int, year: Int): CalendarData.Day {
+        if(isValidDate(year,month,day).not()){
+            throw Exception("Invalid Date")
+        }
         ensureCalendarExists(year)
         val data = calendar[year]?.months?.get(month)?.get(day)
             ?: throw Exception("CANNOT FIND DAY! day: $day month $month year $year")
@@ -264,5 +267,14 @@ class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReade
             retMap[month] = daysMap
         }
         return retMap
+    }
+
+    private fun isValidDate(year: Int, month: Int, day: Int): Boolean {
+        return try {
+            LocalDate.of(year, month, day)
+            true
+        } catch(e: Exception) {
+            false
+        }
     }
 }

@@ -23,14 +23,13 @@ class UsccbParser(date: LocalDate) {
 
         doc.select("h3").forEach {
             val verse = it.siblingElements().first()?.children()?.first()?.text()
-                ?: throw Exception("**********No Verse Available!!!!**********")
 
             val title = it.text().trim()
             readings = when (title) {
-                "Reading 1", "Reading I" -> readings.copy(readingOne = verse)
-                "Reading 2", "Reading II" -> readings.copy(readingOne = verse)
-                "Responsorial Psalm" -> readings.copy(psalm = verse)
-                "Gospel" -> readings.copy(gospel = verse)
+                "Reading 1", "Reading I" -> readings.copy(readingOne = verse ?: throw Exception("**********No Verse Available Reading 1**********"))
+                "Reading 2", "Reading II" -> readings.copy(readingTwo = verse ?: throw Exception("**********No Verse Available Reading 2**********"))
+                "Responsorial Psalm" -> readings.copy(psalm = verse ?: throw Exception("**********No Verse Available Psalm**********"))
+                "Gospel" -> readings.copy(gospel = verse ?: throw Exception("**********No Verse Available Gospel**********"))
                 else -> readings
             }
         }

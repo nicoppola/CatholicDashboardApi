@@ -24,6 +24,7 @@ data class CalendarData(
         val evening: String? = null,
         val night: String? = null,
         val officeOfReadings: String? = null,
+        val officeOfReadingsSubtitle: String? = null,
     )
 
     data class Readings(

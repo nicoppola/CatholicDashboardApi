@@ -12,6 +12,8 @@ class DivineOfficeParser(date: LocalDate) {
 
     fun getOffice(): CalendarData.Office {
 
+        val officeOfReadingsLink = getLink("nav-officeofreadings")
+
         return CalendarData.Office(
             link = url,
             morning = getLink("nav-morningprayer"),
@@ -20,9 +22,24 @@ class DivineOfficeParser(date: LocalDate) {
             midAfternoon = getLink("nav-middaytimeprayer"),
             evening = getLink("nav-eveningprayer"),
             night = getLink("nav-nightprayer"),
-            officeOfReadings = getLink("nav-officeofreadings"),
+            officeOfReadings = officeOfReadingsLink,
+            officeOfReadingsSubtitle = getOfficeOfReadingsSubtitle(officeOfReadingsLink)
         )
     }
+
+    private fun getOfficeOfReadingsSubtitle(link: String?): String? {
+        if(link == null){
+            return ""
+        }
+        val doc = Jsoup.connect(link).get()
+
+        return doc.select("p")
+            .find { it.text().contains("Office of Readings for ") }
+            ?.text()
+            ?.removePrefix("Office of Readings for")
+            ?.trim()
+    }
+
 
     private fun getLink(id: String): String? {
         return doc.getElementById(id)?.select("a")?.attr("href")

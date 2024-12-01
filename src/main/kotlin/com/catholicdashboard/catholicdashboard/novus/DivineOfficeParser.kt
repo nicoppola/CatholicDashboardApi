@@ -38,7 +38,7 @@ class DivineOfficeParser(date: LocalDate) {
             ?.text()
             ?.removePrefix("Office of Readings for")
             ?.trim()
-            ?.toFirstLetterCapital()
+            ?.replaceFirstChar { c -> c.uppercaseChar() }
     }
 
 

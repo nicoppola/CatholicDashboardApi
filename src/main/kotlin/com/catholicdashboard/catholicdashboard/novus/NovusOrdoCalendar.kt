@@ -29,7 +29,7 @@ class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReade
 
         if (orderedData.readings == null) {
             println("************** Getting Readings $localDate **************")
-            val readings = updateCacheWithReadings(localDate)
+            val readings = updateCacheWithReadingsAndPropers(localDate)
             orderedData = orderedData.copy(readings = readings)
         } else {
             println("************** Readings Exist $localDate **************")
@@ -47,9 +47,9 @@ class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReade
     }
 
     private fun setTitleAndColor(day: CalendarData.Day, dayOfWeek: DayOfWeek): CalendarData.Day {
-        val solemnity = day.proper.filter { it.rank == CalendarData.Rank.SOLEMNITY }
-        val feast = day.proper.filter { it.rank == CalendarData.Rank.FEAST }
-        val memorial = day.proper.filter { it.rank == CalendarData.Rank.MEMORIAL }
+        val solemnity = day.propers.filter { it.rank == CalendarData.Rank.SOLEMNITY }
+        val feast = day.propers.filter { it.rank == CalendarData.Rank.FEAST }
+        val memorial = day.propers.filter { it.rank == CalendarData.Rank.MEMORIAL }
         return if (solemnity.isNotEmpty()) {
             if (solemnity.size > 1) println("***** WHY ARE THERE MORE THAN ONE SOLEMNITY IN A DAY")
             day.copy(
@@ -83,13 +83,15 @@ class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReade
         return office
     }
 
-    private fun updateCacheWithReadings(date: LocalDate): CalendarData.Readings {
+    private fun updateCacheWithReadingsAndPropers(date: LocalDate): CalendarData.Readings {
         val parser = UsccbParser(date)
         val readings = parser.getReadings()
         val title = parser.getTitle()
+        val memorials = parser.getMemorials()
 
         calendar[date.year]?.months?.get(date.month.value)?.get(date.dayOfMonth)?.readings =
             readings.copy(title = title)
+        calendar[date.year]?.months?.get(date.month.value)?.get(date.dayOfMonth)?.propers = memorials.toMutableList()
         calendar[date.year]?.let {
             fileReader.writeToFile(fileName(date.year), it)
         }
@@ -129,12 +131,12 @@ class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReade
 
         val calendarData =
             getEmptyCalendar(year)
-                .addGeneralProperSaints()
-                .addUsaProperSaints()
-                .addUsaTemporale()
-                .addSeasonalData()
-                .addTemporale()
-                .setUsaHolyDaysOfObligation()
+//                .addGeneralProperSaints()
+//                .addUsaProperSaints()
+//                .addUsaTemporale()
+//                .addSeasonalData()
+//                .addTemporale()
+//                .setUsaHolyDaysOfObligation()
 
         return calendarData
     }
@@ -262,7 +264,7 @@ class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReade
                     color = CalendarData.Color.UNDEFINED,
                     readings = null,
                     office = null,
-                    proper = mutableListOf(),
+                    propers = mutableListOf(),
                 )
             }
             retMap[month] = daysMap

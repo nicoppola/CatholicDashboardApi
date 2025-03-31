@@ -37,12 +37,12 @@ fun CalendarData.addHolyDayOfObligation(
     key: String,
 ) {
     val proper =
-        this.months[day.month.value]?.get(day.dayOfMonth)?.proper?.find { it.key == key }
-    this.months[day.month.value]?.get(day.dayOfMonth)?.proper?.remove(proper)
+        this.months[day.month.value]?.get(day.dayOfMonth)?.propers?.find { it.key == key }
+    this.months[day.month.value]?.get(day.dayOfMonth)?.propers?.remove(proper)
     if (proper == null) {
         throw Exception("Could not find holy day of obligation $key")
     }
-    this.months[day.month.value]?.get(day.dayOfMonth)?.proper?.add(proper.copy(key = "holyDayObligation"))
+    this.months[day.month.value]?.get(day.dayOfMonth)?.propers?.add(proper.copy(key = "holyDayObligation"))
 }
 
 fun CalendarData.addSanctorale(
@@ -50,11 +50,11 @@ fun CalendarData.addSanctorale(
     month: Int,
     saints: List<CalendarData.Proper>
 ) {
-    this.months[month]?.get(day)?.proper?.addAll(saints)
+    this.months[month]?.get(day)?.propers?.addAll(saints)
 }
 
 fun CalendarData.addSanctorale(day: LocalDate, saints: List<CalendarData.Proper>) {
-    this.months[day.month.value]?.get(day.dayOfMonth)?.proper?.addAll(saints)
+    this.months[day.month.value]?.get(day.dayOfMonth)?.propers?.addAll(saints)
 }
 
 fun LocalDate.getFormattedDayOfWeek(): String {

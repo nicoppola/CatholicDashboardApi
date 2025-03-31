@@ -12,7 +12,7 @@ data class CalendarData(
         var color: Color,
         var readings: Readings?,
         var office: Office?,
-        val proper: MutableList<Proper>,
+        var propers: MutableList<Proper>,
     ) : Serializable
 
     data class Office(
@@ -54,6 +54,7 @@ data class CalendarData(
 
     //rank order 0 is highest
     enum class Rank(value: String, rank: Int) {
+        UNKNOWN("",0),
         SOLEMNITY("Solemnity", 1),
         SUNDAY("Sunday", 2),
         FEAST("Feast", 3),

@@ -27,7 +27,7 @@ class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReade
 
         var orderedData = setTitleAndColor(data, localDate.dayOfWeek)
 
-        if (orderedData.readings == null) {
+        if (orderedData.readings.isEmpty()) {
             println("************** Getting Readings $localDate **************")
             val readings = updateCacheWithReadingsAndPropers(localDate)
             orderedData = orderedData.copy(readings = readings)
@@ -83,20 +83,21 @@ class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReade
         return office
     }
 
-    private fun updateCacheWithReadingsAndPropers(date: LocalDate): CalendarData.Readings {
+    private fun updateCacheWithReadingsAndPropers(date: LocalDate): List<CalendarData.Readings> {
         val parser = UsccbParser(date)
         val readings = parser.getReadings()
         val title = parser.getTitle()
         val memorials = parser.getMemorials()
 
         calendar[date.year]?.months?.get(date.month.value)?.get(date.dayOfMonth)?.readings =
-            readings.copy(title = title)
+            readings
+        calendar[date.year]?.months?.get(date.month.value)?.get(date.dayOfMonth)?.title = title
         calendar[date.year]?.months?.get(date.month.value)?.get(date.dayOfMonth)?.propers = memorials.toMutableList()
         calendar[date.year]?.let {
             fileReader.writeToFile(fileName(date.year), it)
         }
 
-        return readings.copy(title = title)
+        return readings
     }
 
     private fun fileName(year: Int): String {
@@ -262,7 +263,7 @@ class NovusOrdoCalendar @Autowired constructor(private val fileReader: FileReade
                     date = date.format(DateTimeFormatter.ofPattern("MMMM d, u")),
                     title = "",
                     color = CalendarData.Color.UNDEFINED,
-                    readings = null,
+                    readings = emptyList(),
                     office = null,
                     propers = mutableListOf(),
                 )

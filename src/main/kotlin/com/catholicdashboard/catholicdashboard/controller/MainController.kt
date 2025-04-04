@@ -18,6 +18,7 @@ class MainController @Autowired constructor(fileReader: FileReader) {
         return novusCal.getDay(day, month, year)
     }
 
+
     @GetMapping("/calendar")
     fun getCalendar(): CalendarData {
         return novusCal.getCalendar(2024)

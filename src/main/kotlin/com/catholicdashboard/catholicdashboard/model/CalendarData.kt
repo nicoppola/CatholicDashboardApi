@@ -10,7 +10,7 @@ data class CalendarData(
         val date: String,
         var title: String,
         var color: Color,
-        var readings: Readings?,
+        var readings: List<Readings> = emptyList(),
         var office: Office?,
         var propers: MutableList<Proper>,
     ) : Serializable
